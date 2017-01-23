@@ -1,6 +1,6 @@
 [<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](http://www.anychart.com)
 
-AnyChart-React Plugin
+React plugin for AnyChart
 =========
 
 A React Component for AnyChart.
@@ -10,31 +10,61 @@ A React Component for AnyChart.
 * [Download and Install](#download-and-install)
 * [Quick Start](#quick-start)
 * [Build](#build)
+* [Examples Overview](#examples-overview)
 * [Contacts](#contacts)
 * [Links](#links)
 * [License](#license)
 
 ## Download and install
 
-There are several ways to download/install AnyChart-React.
+#### Package managers
+
+You can install AnyChart-React using **npm**, **bower** or **yarn**:
+
+* `npm install anychart-react`
+* `bower install anychart-react`
+* `yarn add anychart-react`
 
 #### Direct download
 
 All binaries are located in [dist](https://github.com/AnyChart/AnyChart-React/tree/master/dist) folder.
 
-#### Package managers
+## Quick Start
+Here is a basic sample that shows how to add a chart:
 
-You can install AnyChart-React using **npm** or **yarn**:
+index.html:
 
-* `npm install anychart-react`
-* `yarn add anychart-react`
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anychart React plugin demo</title>
+</head>
 
-## Quick start
-There is `examples/` folder which contains some common cases of usage.
+<body>
+<!-- Mount node for application -->
+<div id="root"></div>
+<script src="app.min.js"></script>
+</body>
+</html>
+```
+Where app.min.js is compiled and bundled script of your application.
 
-`examples/src/` contains source code of example.
+app.js:
 
-`examples/dist/` contains examples with compiled source.
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+import AnyChart from 'anychart-react.min.js'
+
+ReactDOM.render(
+  <AnyChart
+    type="pie"
+    data={[1, 2, 3, 4]}
+    title="Simple pie chart"
+  />, document.getElementById('root'));
+```
 
 ## Build
 First of all run `npm install` to install dependencies.
@@ -45,13 +75,15 @@ Note that plugin developed using ES6 syntax. There is `import` and `require` sta
 
 There are several gulp tasks:
 
-`gulp` will just compile plugin.
+`gulp` will just compile dev and prod(minified) versions of plugin.
 
-`gulp examples` will compile all examples and put them into `examples/dist` folder.
+`gulp examples` will compile all examples and put them into `examples/` folder by example name.
 
-`gulp <example_name>` will compile specified example.
+`gulp <example_name>` will compile source of specified example.
 
 So fill free to modify examples, build it and see the results.
+
+## Examples Overview
 
 ## Contacts
 

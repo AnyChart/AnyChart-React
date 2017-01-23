@@ -5,8 +5,9 @@ var rename = require('gulp-rename');
 var streamify = require('gulp-streamify');
 var uglify = require('gulp-uglify');
 var source = require('vinyl-source-stream');
+process.env.NODE_ENV = 'production';
 
-gulp.task('make', function() {
+gulp.task('prod', function() {
   return gulp.src('./src/anychart-react.jsx')
     .pipe(babel({
       presets: ['es2015', 'react']
@@ -16,7 +17,20 @@ gulp.task('make', function() {
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('default', ['make']);
+gulp.task('dev', function() {
+  return gulp.src('./src/anychart-react.jsx')
+    .pipe(babel({
+      presets: ['es2015', 'react']
+    }))
+    .pipe(rename('anychart-react.js'))
+    .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('default', ['dev', 'prod']);
+
+/*
+ * Tasks for examples.
+ */
 
 var pipeline = function(name) {
   browserify({
@@ -27,36 +41,37 @@ var pipeline = function(name) {
   })
     .bundle()
     .pipe(source(name + '.min.js'))
-    .pipe(gulp.dest('./examples/dist/' + name))
+    .pipe(streamify(uglify()))
+    .pipe(gulp.dest('./examples/' + name))
 };
 
-gulp.task('complex', function() {
-  pipeline('complex')
+gulp.task('chart_with_json', function() {
+  pipeline('chart_with_json')
 });
 
-gulp.task('map', function() {
-  pipeline('map')
+gulp.task('charts_with_controls', function() {
+  pipeline('charts_with_controls')
 });
 
-gulp.task('simple', function() {
-  pipeline('simple')
+gulp.task('choropleth_map', function() {
+  pipeline('choropleth_map')
 });
 
-gulp.task('stage', function() {
-  pipeline('stage')
+gulp.task('data_streaming', function() {
+  pipeline('data_streaming')
+});
+
+gulp.task('simple_dashboard', function() {
+  pipeline('simple_dashboard')
 });
 
 gulp.task('stock', function() {
   pipeline('stock')
 });
 
-gulp.task('streaming', function() {
-  pipeline('streaming')
-});
-
 gulp.task('tabs', function() {
   pipeline('tabs')
 });
 
-var allExamples = ['complex', 'map', 'simple', 'stage', 'stock', 'streaming', 'tabs'];
+var allExamples = ['chart_with_json', 'charts_with_controls', 'choropleth_map', 'data_streaming', 'simple_dashboard', 'stock', 'tabs'];
 gulp.task('examples', allExamples);

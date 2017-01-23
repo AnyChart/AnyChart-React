@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import AnyChart from '../../src/anychart-react.jsx'
+import AnyChart from '../../dist/anychart-react.min.js'
 
 const complexSettings = {
   width: 800,
@@ -10,7 +10,11 @@ const complexSettings = {
   title: 'Column chart',
   yAxis: [1, {
     orientation: 'right',
-    enabled: true
+    enabled: true,
+    labels: {
+      textFormatter: '{%Value}{decimalPoint:\\,}',
+      fontColor: 'red'
+    }
   }],
   legend: {
     background: 'lightgreen 0.4',

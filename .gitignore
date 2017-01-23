@@ -5,3 +5,4 @@
 *.swp
 node_modules
 yarn.lock
+.babelrc

@@ -1,15 +1,41 @@
 import React from 'react';
-require('anychart');
+require('anychart')(document.defaultView);
 
+/**
+ * AnyChart React plugin.
+ */
 class AnyChart extends React.Component {
   constructor(props) {
     super(props);
+    /**
+     * Instance (stage or chart).
+     * @type {Object}
+     */
     this.instance = null;
+
+    /**
+     * Whether instance is stage.
+     * @type {boolean}
+     */
     this.isStage = false;
+
+    /**
+     * Should we dispose instance or not.
+     * @type {boolean}
+     */
     this.disposeInstance = false;
-    this.multipleEntities = ['xAxis', 'yAxis', 'lineMarker', 'rangeMarker', 'textMarker'];
+
+    /**
+     * Properties of AnyChart which expected as array of [entity_index, json].
+     * E.g. <AnyChart yAxis={[1, {orientation: 'right'}]} />
+     * @type {Array.<string>}
+     */
+    this.multipleEntities = ['xAxis', 'yAxis', 'lineMarker', 'rangeMarker', 'textMarker', 'grid', 'minorGrid'];
   }
 
+  /**
+   * Remove instance (dispose it if necessary).
+   */
   removeInstance() {
     if (this.instance) {
       if (this.disposeInstance)
@@ -23,10 +49,19 @@ class AnyChart extends React.Component {
     }
   }
 
+  /**
+   * Checker for array.
+   * @param {*} value Value to check.
+   * @return {boolean}
+   */
   isArray(value) {
     return ((typeof value == 'object') && (value instanceof Array))
   }
 
+  /**
+   * Applies props.
+   * @param {Object} props Properties.
+   */
   applyProps(props) {
     for (let key of Object.keys(props)) {
       let value = props[key];
@@ -44,6 +79,10 @@ class AnyChart extends React.Component {
     }
   }
 
+  /**
+   * Create instance to render chart or use instance property.
+   * @param {Object} props Properties.
+   */
   createInstance(props) {
     if (props.instance) {
       this.removeInstance();
@@ -64,6 +103,10 @@ class AnyChart extends React.Component {
     delete props.id;
   }
 
+  /**
+   * Draws chart.
+   * @param {Object} props Properties.
+   */
   drawInstance(props) {
     if (!this.instance) return;
     if (this.isStage) {
@@ -81,22 +124,37 @@ class AnyChart extends React.Component {
     }
   }
 
+  /**
+   * Method that
+   * @param {Object} prevProps
+   */
   createAndDraw(prevProps) {
     var props = Object.assign(prevProps, this.props);
     this.createInstance(props);
     this.drawInstance(props);
   }
 
+  /**
+   * Render container for future chart drawing.
+   */
   render() {
     return (
       <div id={this.props.id || 'ac-chart-container'}></div>
     )
   }
 
+  /**
+   * Component has rendered.
+   */
   componentDidMount() {
     this.createAndDraw({});
   }
 
+  /**
+   * Component has re-rendered.
+   * @param {Object} prevProps Previous properties.
+   * @param {Object} prevState Previous state.
+   */
   componentDidUpdate(prevProps, prevState) {
     var props = Object.assign({}, prevProps);
     delete props.type;
@@ -104,9 +162,15 @@ class AnyChart extends React.Component {
     this.createAndDraw(props)
   }
 
+  /**
+   * Unmount react component.
+   */
   componentWillUnmount() {
     this.removeInstance();
   }
 }
 
+/**
+ * Default export.
+ */
 export default AnyChart

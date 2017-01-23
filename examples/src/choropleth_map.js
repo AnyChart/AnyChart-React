@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import AnyChart from '../../src/anychart-react.jsx'
+import AnyChart from '../../dist/anychart-react.min.js'
 
 let data = anychart.data.set([
   {'id': 'AU.WA', 'value': 300},

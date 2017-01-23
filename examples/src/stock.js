@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import AnyChart from '../../src/anychart-react.jsx'
+import AnyChart from '../../dist/anychart-react.min.js'
 
 var msftDataTable = anychart.data.table();
 msftDataTable.addData(get_msft_daily_short_data());

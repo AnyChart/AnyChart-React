@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import AnyChart from '../../src/anychart-react.jsx'
+import AnyChart from '../../dist/anychart-react.min.js'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 class App extends React.Component {
