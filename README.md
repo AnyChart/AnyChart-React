@@ -11,6 +11,7 @@ Intuitive and easy to use [React](https://facebook.github.io/react/) plugin that
 * [Quick Start](#quick-start)
 * [Build](#build)
 * [Examples Overview](#examples-overview)
+* [Usage](#usage)
 * [Contacts](#contacts)
 * [Links](#links)
 * [License](#license)
@@ -93,6 +94,42 @@ See these examples to learn how things work:
 * **[simple_dashboard](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Simple dashboard demo.
 * **[stock](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Stock chart demo.
 * **[tabs](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Demo demonstrates how you can use AnyChart with [React Tabs](https://github.com/reactjs/react-tabs) component. Also demonstrates how to control legend through component state.
+
+Source code of examples is located in [`examples/src`](https://github.com/anychart/anychart-react/blob/master/examples/src).
+
+## Usage
+Property | Code sample | Description
+--- | --- | ---
+instance | `<AnyChart instance={myChart}` | Allows to use [preconfigured instance](https://github.com/anychart/anychart-react/blob/master/examples/src/simple_dashboard.js)
+id | `<AnyChart id="chart-container" />` | Describes id of container.
+type* | `<AnyChart type="line" />` | Describes type of chart
+data | `<AnyChart type="column" data={[3, 1, 2]} />` | Describes data
+width/height | `<AnyChart width={800} height={600} />` | Descripes width/height of charts [stage](http://docs.anychart.com/latest/Graphics/Basics)
+\* - property required if you do not use an instance.
+
+If you do not use an instance - then properties of component are similar to our [JavaScript API](https://api.anychart.com). And in most cases are equivalent to method call on chart.
+
+For example:
+
+```
+<AnyChart type="column" data={[3, 1, 2]} title="My Chart Title" legend="true"/>
+```
+equivalent to
+
+```
+var chart = anychart.column([3,1,2]);
+chart.title("My Chart Title");
+chart.legend(true);
+```
+
+#### Multiple entities (axis, lineMarkers, grids)
+To configure entity by index you should use an array as value: first item in array - index of entity, second - config.
+
+```
+<AnyChart yAxis={[1, {enabled: true}]} />
+```
+
+Such as show in [chart_with_json](https://github.com/anychart/anychart-react/blob/master/examples/src/chart_with_json.js) example.
 
 ## Contacts
 
