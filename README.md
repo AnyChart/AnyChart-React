@@ -3,7 +3,7 @@
 React plugin for AnyChart
 =========
 
-A React Component for AnyChart.
+Intuitive and easy to use [React](https://facebook.github.io/react/) plugin that allows you to create and work with [AnyChart charts](http://anychart.com).
 
 ## Table of Contents
 
@@ -84,6 +84,15 @@ There are several gulp tasks:
 So fill free to modify examples, build it and see the results.
 
 ## Examples Overview
+See these examples to learn how things work:
+
+* **[chart_with_json](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Chart with complex json settings.
+* **[charts_with_controls](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Simple demo with 2 charts. Allows to change title and enable/disable legend.
+* **[choropleth_map](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Choropleth map demo.
+* **[data_streaming](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Simple data-streaming demo.
+* **[simple_dashboard](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Simple dashboard demo.
+* **[stock](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Stock chart demo.
+* **[tabs](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Demo demonstrates how you can use AnyChart with [React Tabs](https://github.com/reactjs/react-tabs) component. Also demonstrates how to control legend through component state.
 
 ## Contacts
 
