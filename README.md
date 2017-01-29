@@ -1,9 +1,9 @@
 [<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](http://www.anychart.com)
 
-React plugin for AnyChart
+React Plugin for AnyChart
 =========
 
-Intuitive and easy to use [React](https://facebook.github.io/react/) plugin that allows you to create and work with [AnyChart charts](http://anychart.com).
+Intuitive and easy to use [React](https://facebook.github.io/react/) plugin that allows you to create and work with [AnyChart JavaScript Charts](http://anychart.com).
 
 ## Table of Contents
 
@@ -28,7 +28,7 @@ You can install AnyChart-React using **npm**, **bower** or **yarn**:
 
 #### Direct download
 
-All binaries are located in [dist](https://github.com/AnyChart/AnyChart-React/tree/master/dist) folder.
+Binaries are in the [dist](https://github.com/AnyChart/AnyChart-React/tree/master/dist) folder.
 
 ## Quick Start
 Here is a basic sample that shows how to add a chart:
@@ -68,53 +68,53 @@ ReactDOM.render(
 ```
 
 ## Build
-First of all run `npm install` to install dependencies.
+First, run `npm install` to install dependencies.
 
-To compile plugin source code and examples we use gulp.
+To compile plugin source code and examples we use [gulp](http://gulpjs.com/).
 
-Note that plugin developed using ES6 syntax. There is `import` and `require` statements in it, so you will need a javascript bundler (such as browserify or webpack) if you want to include it in your app.
+Note that plugin is developed using ES6 syntax. There are `import` and `require` statements in it, so you need a JavaScript bundler (such as [browserify](http://browserify.org/) or [webpack](https://webpack.github.io/) if you want to include it in your app.
 
 There are several gulp tasks:
 
-`gulp` will just compile dev and prod(minified) versions of plugin.
+`gulp` just compiles dev and prod(minified) versions of the plugin.
 
-`gulp examples` will compile all examples and put them into `examples/` folder by example name.
+`gulp examples` compiles all examples and puts them into `examples/` folder.
 
-`gulp <example_name>` will compile source of specified example.
+`gulp <example_name>` compiles the source of an example.
 
-So fill free to modify examples, build it and see the results.
+Feel free to modify samples, build them and see the results.
 
 ## Examples Overview
 See these examples to learn how things work:
 
-* **[chart_with_json](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Chart with complex json settings.
-* **[charts_with_controls](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Simple demo with 2 charts. Allows to change title and enable/disable legend.
-* **[choropleth_map](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Choropleth map demo.
-* **[data_streaming](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Simple data-streaming demo.
-* **[simple_dashboard](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Simple dashboard demo.
-* **[stock](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Stock chart demo.
-* **[tabs](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Demo demonstrates how you can use AnyChart with [React Tabs](https://github.com/reactjs/react-tabs) component. Also demonstrates how to control legend through component state.
+* **[Chart with JSON Settings](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Chart with complex JSON settings.
+* **[Charts_with_Controls](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_controls)**: Simple demo with 2 charts. Allows to change title and enable/disable legend.
+* **[Geographical_Map](https://github.com/anychart/anychart-react/blob/master/examples/choropleth_map)**: Choropleth map demo.
+* **[Data_Streaming](https://github.com/anychart/anychart-react/blob/master/examples/data_streaming)**: Simple data streaming demo.
+* **[Simple_Dashboard](https://github.com/anychart/anychart-react/blob/master/examples/simple_dashboard)**: Simple dashboard demo.
+* **[Stock Chart](https://github.com/anychart/anychart-react/blob/master/examples/stock)**: Stock chart demo.
+* **[Tabs](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Demo shows how you can use AnyChart with [React Tabs](https://github.com/reactjs/react-tabs); also shows how to control a legend using component state.
 
-Source code of examples is located in [`examples/src`](https://github.com/anychart/anychart-react/blob/master/examples/src).
+The source code for all examples is in the [`examples/src`](https://github.com/anychart/anychart-react/blob/master/examples/src) folder.
 
 ## Usage
 Property | Code sample | Description
 --- | --- | ---
-instance | `<AnyChart instance={myChart}` | Allows to use [preconfigured instance](https://github.com/anychart/anychart-react/blob/master/examples/src/simple_dashboard.js)
-id | `<AnyChart id="chart-container" />` | Describes id of container.
-type* | `<AnyChart type="line" />` | Describes type of chart
-data | `<AnyChart type="column" data={[3, 1, 2]} />` | Describes data
-width/height | `<AnyChart width={800} height={600} />` | Descripes width/height of charts [stage](http://docs.anychart.com/latest/Graphics/Basics)
-\* - property required if you do not use an instance.
+instance | `<AnyChart instance={myChart}` | Allows to use a [preconfigured instance](https://github.com/anychart/anychart-react/blob/master/examples/src/simple_dashboard.js)
+id | `<AnyChart id="chart-container" />` | Container id.
+type\* | `<AnyChart type="line" />` | Chart type.
+data | `<AnyChart type="column" data={[3, 1, 2]} />` | Chart data.
+width/height | `<AnyChart width={800} height={600} />` | Width/height of a chart (stage).
+\* - property is required if you do not use an instance.
 
-If you do not use an instance - then properties of component are similar to our [JavaScript API](https://api.anychart.com). And in most cases are equivalent to method call on chart.
+If you do not use an *instance* property of a component, properties go exactly as they go in [AnyChart JavaScript API](https://api.anychart.com).
 
 For example:
 
 ```
 <AnyChart type="column" data={[3, 1, 2]} title="My Chart Title" legend="true"/>
 ```
-equivalent to
+is equivalent to:
 
 ```
 var chart = anychart.column([3,1,2]);
@@ -122,14 +122,14 @@ chart.title("My Chart Title");
 chart.legend(true);
 ```
 
-#### Multiple entities (axis, lineMarkers, grids)
-To configure entity by index you should use an array as value: first item in array - index of entity, second - config.
+#### Multiple entities (axes, line markers, grids)
+To configure entity by index, you should use an array as a value: the first item in an array - index of an entity, the second - configuration.
 
 ```
 <AnyChart yAxis={[1, {enabled: true}]} />
 ```
 
-Such as show in [chart_with_json](https://github.com/anychart/anychart-react/blob/master/examples/src/chart_with_json.js) example.
+Such settings are shown in [Chart_with_JSON Settings](https://github.com/anychart/anychart-react/blob/master/examples/src/chart_with_json.js) example.
 
 ## Contacts
 
@@ -141,11 +141,11 @@ Such as show in [chart_with_json](https://github.com/anychart/anychart-react/blo
 
 ## Links
 
+* [Report Issues](https://github.com/AnyChart/AnyChart-React/issues)
 * [AnyChart Website](http://www.anychart.com)
 * [Download AnyChart](http://www.anychart.com/download/)
 * [AnyChart Licensing](http://www.anychart.com/buy/)
 * [AnyChart Support](http://www.anychart.com/support/)
-* [Report Issues](http://github.com/AnyChart/anychart/issues)
 * [AnyChart Playground](http://playground.anychart.com)
 * [AnyChart Documentation](http://docs.anychart.com)
 * [AnyChart API Reference](http://api.anychart.com)
@@ -154,4 +154,4 @@ Such as show in [chart_with_json](https://github.com/anychart/anychart-react/blo
 
 ## License
 
-[© AnyChart.com - JavaScript charts](http://www.anychart.com). Released under the [Apache 2.0 License](https://github.com/anychart-integrations/ruby-sinatra-mysql-template/blob/master/LICENSE).
+[© AnyChart.com - JavaScript charts](http://www.anychart.com). React Plugin is released under the [Apache 2.0 License](https://github.com/github.com/AnyChart/AnyChart-React/blob/master/LICENSE).
