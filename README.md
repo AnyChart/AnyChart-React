@@ -68,21 +68,34 @@ ReactDOM.render(
 ```
 
 ## Build
-First, run `npm install` to install dependencies.
+We use [gulp](http://gulpjs.com/) to compile plugin source code and examples.  
+Please install all necessary dependencies using following command
 
-To compile plugin source code and examples we use [gulp](http://gulpjs.com/).
+```
+npm install
+```
 
-Note that plugin is developed using ES6 syntax. There are `import` and `require` statements in it, so you need a JavaScript bundler (such as [browserify](http://browserify.org/) or [webpack](https://webpack.github.io/) if you want to include it in your app.
+#### Building plugin
+To compile plugin from source run following command
+```
+gulp
+```
 
-There are several gulp tasks:
+#### Building examples
+To comile all examples run following command
+```
+gulp examples
+```
 
-`gulp` just compiles dev and prod(minified) versions of the plugin.
-
-`gulp examples` compiles all examples and puts them into `examples/` folder.
-
-`gulp <example_name>` compiles the source of an example.
+To compile certain exmaple run following command
+```
+gulp <example_name>
+```
 
 Feel free to modify samples, build them and see the results.
+
+#### Note
+React Plugin for AnyChart is developed using ES6 syntax. There are `import` and `require` statements in it, so you need a JavaScript bundler (such as [browserify](http://browserify.org/) or [webpack](https://webpack.github.io/) if you want to include it in your app.
 
 ## Examples Overview
 See these examples to learn how things work:
