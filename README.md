@@ -68,7 +68,7 @@ ReactDOM.render(
 ```
 
 ## Build
-To build plugin and samples you need to install (gulp)[(http://gulpjs.com/)] if you don't have it installed already.
+To build plugin and samples you need to install [gulp](http://gulpjs.com/) if you don't have it installed already.
 
 Please install remaining dependencies using following command
 ```
@@ -87,7 +87,7 @@ To compile all examples run following command
 gulp examples
 ```
 
-To compile certain exmaple run following command
+To compile certain example run following command
 ```
 gulp <example_name>
 ```
@@ -100,7 +100,7 @@ React Plugin for AnyChart is developed using ES6 syntax. There are `import` and 
 ## Examples Overview
 See these examples to learn how things work:
 
-* **[Chart with JSON Settings](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Chart with complex JSON settings.
+* **[Chart_with_JSON_Settings](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Chart with complex JSON settings.
 * **[Charts_with_Controls](https://github.com/anychart/anychart-react/blob/master/examples/charts_with_controls)**: Simple demo with 2 charts. Allows to change title and enable/disable legend.
 * **[Geographical_Map](https://github.com/anychart/anychart-react/blob/master/examples/choropleth_map)**: Choropleth map demo.
 * **[Data_Streaming](https://github.com/anychart/anychart-react/blob/master/examples/data_streaming)**: Simple data streaming demo.
