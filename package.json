@@ -1,13 +1,42 @@
 {
   "name": "anychart-react",
   "version": "1.0.0",
-  "description": "AnyChart React plugin",
-  "main": "dist/anychart-react.min.js",
+  "description": "React component for AnyChart JavaScript charting library",
+  "main": "./dist/anychart-react.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnyChart/AnyChart-React.git"
+  },
   "author": "AnyChart",
   "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/AnyChart/AnyChart-React/issues"
+  },
+  "homepage": "https://github.com/AnyChart/AnyChart-React",
+  "keywords": [
+    "anychart",
+    "anystock",
+    "anygantt",
+    "anymap",
+    "charts",
+    "javascript charts",
+    "ajax charts",
+    "plots",
+    "line charts",
+    "bar charts",
+    "pie charts",
+    "javascript plots",
+    "ajax plots",
+    "javascript",
+    "react",
+    "SVG",
+    "HTML5",
+    "framework",
+    "VML"
+  ],
   "dependencies": {
     "anychart": "^7.13.0-dev-preview.0",
     "react": "^15.4.1",

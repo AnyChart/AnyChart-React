@@ -1,7 +1,7 @@
 {
   "name": "anychart-react",
-  "description": "AnyChart React plugin",
-  "main": "dist/anychart-react.min.js",
+  "description": "React component for AnyChart JavaScript charting library",
+  "main": "./dist/anychart-react.min.js",
   "authors": [
     "AnyChart"
   ],
@@ -30,6 +30,7 @@
     "javascript plots",
     "ajax plots",
     "javascript",
+    "react",
     "SVG",
     "HTML5",
     "framework",

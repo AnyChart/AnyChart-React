@@ -68,9 +68,9 @@ ReactDOM.render(
 ```
 
 ## Build
-We use [gulp](http://gulpjs.com/) to compile plugin source code and examples.  
-Please install all necessary dependencies using following command
+To build plugin and samples you need to install (gulp)[(http://gulpjs.com/)] if you don't have it installed already.
 
+Please install remaining dependencies using following command
 ```
 npm install
 ```
@@ -82,7 +82,7 @@ gulp
 ```
 
 #### Building examples
-To comile all examples run following command
+To compile all examples run following command
 ```
 gulp examples
 ```
@@ -101,12 +101,12 @@ React Plugin for AnyChart is developed using ES6 syntax. There are `import` and 
 See these examples to learn how things work:
 
 * **[Chart with JSON Settings](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Chart with complex JSON settings.
-* **[Charts_with_Controls](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_controls)**: Simple demo with 2 charts. Allows to change title and enable/disable legend.
+* **[Charts_with_Controls](https://github.com/anychart/anychart-react/blob/master/examples/charts_with_controls)**: Simple demo with 2 charts. Allows to change title and enable/disable legend.
 * **[Geographical_Map](https://github.com/anychart/anychart-react/blob/master/examples/choropleth_map)**: Choropleth map demo.
 * **[Data_Streaming](https://github.com/anychart/anychart-react/blob/master/examples/data_streaming)**: Simple data streaming demo.
 * **[Simple_Dashboard](https://github.com/anychart/anychart-react/blob/master/examples/simple_dashboard)**: Simple dashboard demo.
 * **[Stock Chart](https://github.com/anychart/anychart-react/blob/master/examples/stock)**: Stock chart demo.
-* **[Tabs](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Demo shows how you can use AnyChart with [React Tabs](https://github.com/reactjs/react-tabs); also shows how to control a legend using component state.
+* **[Tabs](https://github.com/anychart/anychart-react/blob/master/examples/tabs)**: Demo shows how you can use AnyChart with [React Tabs](https://github.com/reactjs/react-tabs); also shows how to control a legend using component state.
 
 The source code for all examples is in the [`examples/src`](https://github.com/anychart/anychart-react/blob/master/examples/src) folder.
 
