@@ -13,7 +13,7 @@ chart2.bounds(0, '50%', '100%', '50%');
 ReactDOM.render(
   <AnyChart
     instance={stage}
-    width={800}
+    width={'100%'}
     height={600}
     charts={[chart1, chart2]}
   />, document.getElementById('root'));

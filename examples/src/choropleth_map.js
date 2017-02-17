@@ -16,7 +16,7 @@ let data = anychart.data.set([
 
 ReactDOM.render(
   <AnyChart
-    width={800}
+    width={'100%'}
     height={600}
     type="choropleth"
     data={data}

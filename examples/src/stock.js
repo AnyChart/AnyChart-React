@@ -26,7 +26,7 @@ chart.selectRange('2005-01-03', '2005-11-20');
 
 ReactDOM.render(
   <AnyChart
-    width={800}
+    width={'100%'}
     height={600}
     instance={chart}
     title="Stock demo"

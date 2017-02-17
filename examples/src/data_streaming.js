@@ -12,7 +12,7 @@ let dataSet = anychart.data.set(rawData);
 ReactDOM.render(
   <AnyChart
     id="lineChart"
-    width={800}
+    width={'100%'}
     height={600}
     type="line"
     data={dataSet}

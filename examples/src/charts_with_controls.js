@@ -6,7 +6,7 @@ import AnyChart from '../../dist/anychart-react.min.js'
 ReactDOM.render(
   <AnyChart
     id="pieChart"
-    width={800}
+    width={'100%'}
     height={600}
     type="pie"
     data={[1, 2, 3, 4]}
@@ -16,7 +16,7 @@ ReactDOM.render(
 ReactDOM.render(
   <AnyChart
     id="columnChart"
-    width={800}
+    width={'100%'}
     height={600}
     type="column"
     data={"P1,5\nP2,3\nP3,6\nP4,4"}

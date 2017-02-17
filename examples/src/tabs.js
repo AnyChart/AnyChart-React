@@ -30,16 +30,16 @@ class App extends React.Component {
         </TabList>
 
         <TabPanel>
-          <AnyChart width={800} height={600} title="Tab1 chart" type="pie" data={[5, 3, 3, 5]}/>
+          <AnyChart width={'100%'} height={600} title="Tab1 chart" type="pie" data={[5, 3, 3, 5]}/>
         </TabPanel>
 
         <TabPanel>
           <label>Legend: <input id="legendChange" type="checkbox" onChange={this.handleLegendChange} /></label>
-          <AnyChart legend={this.state.legend} width={800} height={600} title="Tab2 chart" type="column" data={"P1,5\nP2,3\nP3,6\nP4,4"}/>
+          <AnyChart legend={this.state.legend} width={'100%'} height={600} title="Tab2 chart" type="column" data={"P1,5\nP2,3\nP3,6\nP4,4"}/>
         </TabPanel>
 
         <TabPanel>
-          <AnyChart width={800} height={600} title="Tab3 chart" type="line" data={"P1,5\nP2,3\nP3,6\nP4,4"}/>
+          <AnyChart width={'100%'} height={600} title="Tab3 chart" type="line" data={"P1,5\nP2,3\nP3,6\nP4,4"}/>
         </TabPanel>
 
       </Tabs>
