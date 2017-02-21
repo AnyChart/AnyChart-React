@@ -167,4 +167,4 @@ Such settings are shown in [Chart_with_JSON Settings](https://github.com/anychar
 
 ## License
 
-[© AnyChart.com - JavaScript charts](http://www.anychart.com). React Plugin is released under the [Apache 2.0 License](https://github.com/github.com/AnyChart/AnyChart-React/blob/master/LICENSE).
+[© AnyChart.com - JavaScript charts](http://www.anychart.com). React Plugin is released under the [Apache 2.0 License](https://github.com/AnyChart/AnyChart-React/blob/master/LICENSE).
