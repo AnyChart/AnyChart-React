@@ -49,6 +49,10 @@ gulp.task('chart_with_json', function() {
   pipeline('chart_with_json')
 });
 
+gulp.task('multiseries_column_chart', function() {
+  pipeline('multiseries_column_chart')
+});
+
 gulp.task('charts_with_controls', function() {
   pipeline('charts_with_controls')
 });
@@ -59,10 +63,6 @@ gulp.task('choropleth_map', function() {
 
 gulp.task('data_streaming', function() {
   pipeline('data_streaming')
-});
-
-gulp.task('multicolumn_chart', function() {
-  pipeline('multicolumn_chart')
 });
 
 gulp.task('simple_dashboard', function() {
@@ -77,5 +77,5 @@ gulp.task('tabs', function() {
   pipeline('tabs')
 });
 
-var allExamples = ['chart_with_json', 'charts_with_controls', 'choropleth_map', 'data_streaming', 'multicolumn_chart', 'simple_dashboard', 'stock', 'tabs'];
+var allExamples = ['chart_with_json', 'charts_with_controls', 'choropleth_map', 'data_streaming', 'multiseries_column_chart', 'simple_dashboard', 'stock', 'tabs'];
 gulp.task('examples', allExamples);
