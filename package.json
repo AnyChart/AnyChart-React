@@ -1,6 +1,6 @@
 {
   "name": "anychart-react",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "React component for AnyChart JavaScript charting library",
   "main": "./dist/anychart-react.min.js",
   "scripts": {
@@ -38,7 +38,7 @@
     "VML"
   ],
   "dependencies": {
-    "anychart": "^7.13.0-dev-preview.0",
+    "anychart": "^7.13.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   },

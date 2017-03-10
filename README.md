@@ -10,7 +10,7 @@ Intuitive and easy to use [React](https://facebook.github.io/react/) plugin that
 * [Download and Install](#download-and-install)
 * [Quick Start](#quick-start)
 * [Build](#build)
-* [Examples Overview](#examples-overview)
+* [Examples](#examples)
 * [Usage](#usage)
 * [Contacts](#contacts)
 * [Links](#links)
@@ -97,10 +97,11 @@ Feel free to modify samples, build them and see the results.
 #### Note
 React Plugin for AnyChart is developed using ES6 syntax. There are `import` and `require` statements in it, so you need a JavaScript bundler (such as [browserify](http://browserify.org/) or [webpack](https://webpack.github.io/) if you want to include it in your app.
 
-## Examples Overview
+## Examples
 See these examples to learn how things work:
 
 * **[Chart_with_JSON_Settings](https://github.com/anychart/anychart-react/blob/master/examples/chart_with_json)**: Chart with complex JSON settings.
+* **[Multiseries Chart](https://github.com/anychart/anychart-react/blob/master/examples/multiseries_column_chart)**: Multiseries Column Chart Sample.
 * **[Charts_with_Controls](https://github.com/anychart/anychart-react/blob/master/examples/charts_with_controls)**: Simple demo with 2 charts. Allows to change title and enable/disable legend.
 * **[Geographical_Map](https://github.com/anychart/anychart-react/blob/master/examples/choropleth_map)**: Choropleth map demo.
 * **[Data_Streaming](https://github.com/anychart/anychart-react/blob/master/examples/data_streaming)**: Simple data streaming demo.
@@ -167,4 +168,4 @@ Such settings are shown in [Chart_with_JSON Settings](https://github.com/anychar
 
 ## License
 
-[© AnyChart.com - JavaScript charts](http://www.anychart.com). React Plugin is released under the [Apache 2.0 License](https://github.com/github.com/AnyChart/AnyChart-React/blob/master/LICENSE).
+[© AnyChart.com - JavaScript charts](http://www.anychart.com). React Plugin is released under the [Apache 2.0 License](https://github.com/AnyChart/AnyChart-React/blob/master/LICENSE).
