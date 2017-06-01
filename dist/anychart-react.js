@@ -12,6 +12,8 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+require('anychart');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -22,22 +24,48 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-require('anychart')(document.defaultView);
-
+/**
+ * AnyChart React plugin.
+ */
 var AnyChart = function (_React$Component) {
   _inherits(AnyChart, _React$Component);
 
   function AnyChart(props) {
     _classCallCheck(this, AnyChart);
 
+    /**
+     * Instance (stage or chart).
+     * @type {Object}
+     */
     var _this = _possibleConstructorReturn(this, (AnyChart.__proto__ || Object.getPrototypeOf(AnyChart)).call(this, props));
 
     _this.instance = null;
+
+    /**
+     * Whether instance is stage.
+     * @type {boolean}
+     */
     _this.isStage = false;
+
+    /**
+     * Should we dispose instance or not.
+     * @type {boolean}
+     */
     _this.disposeInstance = false;
-    _this.multipleEntities = ['xAxis', 'yAxis', 'lineMarker', 'rangeMarker', 'textMarker'];
+
+    /**
+     * Properties of AnyChart which expected as array of [entity_index, json].
+     * E.g. <AnyChart yAxis={[1, {orientation: 'right'}]} />
+     * @type {Array.<string>}
+     */
+    _this.multipleEntities = ['xAxis', 'yAxis', 'lineMarker', 'rangeMarker', 'textMarker', 'grid', 'minorGrid'];
     return _this;
   }
+
+  /**
+   * Remove instance (dispose it if necessary).
+   */
+
 
   _createClass(AnyChart, [{
     key: 'removeInstance',
@@ -48,11 +76,24 @@ var AnyChart = function (_React$Component) {
         }
       }
     }
+
+    /**
+     * Checker for array.
+     * @param {*} value Value to check.
+     * @return {boolean}
+     */
+
   }, {
     key: 'isArray',
     value: function isArray(value) {
       return (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object' && value instanceof Array;
     }
+
+    /**
+     * Applies props.
+     * @param {Object} props Properties.
+     */
+
   }, {
     key: 'applyProps',
     value: function applyProps(props) {
@@ -91,6 +132,12 @@ var AnyChart = function (_React$Component) {
         }
       }
     }
+
+    /**
+     * Create instance to render chart or use instance property.
+     * @param {Object} props Properties.
+     */
+
   }, {
     key: 'createInstance',
     value: function createInstance(props) {
@@ -111,6 +158,12 @@ var AnyChart = function (_React$Component) {
       if (this.instance) this.instance.container(props.id || 'ac-chart-container');
       delete props.id;
     }
+
+    /**
+     * Draws chart.
+     * @param {Object} props Properties.
+     */
+
   }, {
     key: 'drawInstance',
     value: function drawInstance(props) {
@@ -151,6 +204,12 @@ var AnyChart = function (_React$Component) {
         this.instance.draw();
       }
     }
+
+    /**
+     * Method that
+     * @param {Object} prevProps
+     */
+
   }, {
     key: 'createAndDraw',
     value: function createAndDraw(prevProps) {
@@ -158,16 +217,33 @@ var AnyChart = function (_React$Component) {
       this.createInstance(props);
       this.drawInstance(props);
     }
+
+    /**
+     * Render container for future chart drawing.
+     */
+
   }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement('div', { id: this.props.id || 'ac-chart-container' });
     }
+
+    /**
+     * Component has rendered.
+     */
+
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.createAndDraw({});
     }
+
+    /**
+     * Component has re-rendered.
+     * @param {Object} prevProps Previous properties.
+     * @param {Object} prevState Previous state.
+     */
+
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate(prevProps, prevState) {
@@ -176,6 +252,11 @@ var AnyChart = function (_React$Component) {
       delete props.instance;
       this.createAndDraw(props);
     }
+
+    /**
+     * Unmount react component.
+     */
+
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
@@ -185,5 +266,10 @@ var AnyChart = function (_React$Component) {
 
   return AnyChart;
 }(_react2.default.Component);
+
+/**
+ * Default export.
+ */
+
 
 exports.default = AnyChart;

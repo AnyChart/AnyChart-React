@@ -12,7 +12,7 @@ const complexSettings = {
     orientation: 'right',
     enabled: true,
     labels: {
-      textFormatter: '{%Value}{decimalPoint:\\,}',
+      format: '{%Value}{decimalPoint:\\,}',
       fontColor: 'red'
     }
   }],

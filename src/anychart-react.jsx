@@ -1,5 +1,5 @@
 import React from 'react';
-require('anychart')(document.defaultView);
+import 'anychart';
 
 /**
  * AnyChart React plugin.
