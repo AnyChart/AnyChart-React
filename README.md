@@ -147,7 +147,7 @@ Such settings are shown in [Chart_with_JSON Settings](https://github.com/anychar
 
 ## Contacts
 
-* Web: [www.anychart.com](http://www.anychart.com)
+* Web: [www.anychart.com](https://www.anychart.com)
 * Email: [contact@anychart.com](mailto:contact@anychart.com)
 * Twitter: [anychart](https://twitter.com/anychart)
 * Facebook: [AnyCharts](https://www.facebook.com/AnyCharts)
@@ -168,5 +168,10 @@ Such settings are shown in [Chart_with_JSON Settings](https://github.com/anychar
 
 ## License
 
-[© AnyChart.com - JavaScript charts](https://www.anychart.com). 
+AnyChart React plugin sample includes two parts:
+- code of the plugin sample that allows to use Javascript library (in this case, AnyChart) with React Library. You can use, edit, modify it, use it with other Javascript libraries without any restrictions. It is released under [Apache 2.0 License](https://github.com/AnyChart/AnyChart-React/blob/master/LICENSE).
+- AnyChart JavaScript library. It is released under Commercial license. You can test this plugin with the trial version of AnyChart. Our trial version is not limited by time and doesn't contain any feature limitations. Check details [here](https://www.anychart.com/buy/)
+
+If you have any questions regarding licensing - please contact us. <sales@anychart.com>
+
 [![Analytics](https://ga-beacon.appspot.com/UA-228820-4/Plugins/React?pixel&useReferer)](https://github.com/igrigorik/ga-beacon)
