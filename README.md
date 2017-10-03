@@ -1,9 +1,9 @@
-[<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](http://www.anychart.com)
+[<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](https://www.anychart.com)
 
 React Plugin for AnyChart
 =========
 
-Intuitive and easy to use [React](https://facebook.github.io/react/) plugin that allows you to create and work with [AnyChart JavaScript Charts](http://anychart.com).
+Intuitive and easy to use [React](https://facebook.github.io/react/) plugin that allows you to create and work with [AnyChart JavaScript Charts](https://www.anychart.com).
 
 ## Table of Contents
 
@@ -156,16 +156,17 @@ Such settings are shown in [Chart_with_JSON Settings](https://github.com/anychar
 ## Links
 
 * [Report Issues](https://github.com/AnyChart/AnyChart-React/issues)
-* [AnyChart Website](http://www.anychart.com)
-* [Download AnyChart](http://www.anychart.com/download/)
-* [AnyChart Licensing](http://www.anychart.com/buy/)
-* [AnyChart Support](http://www.anychart.com/support/)
-* [AnyChart Playground](http://playground.anychart.com)
-* [AnyChart Documentation](http://docs.anychart.com)
-* [AnyChart API Reference](http://api.anychart.com)
-* [AnyChart Sample Solutions](http://www.anychart.com/solutions/)
-* [AnyChart Integrations](http://www.anychart.com/integrations/)
+* [AnyChart Website](https://www.anychart.com)
+* [Download AnyChart](https://www.anychart.com/download/)
+* [AnyChart Licensing](https://www.anychart.com/buy/)
+* [AnyChart Support](https://www.anychart.com/support/)
+* [AnyChart Playground](https://playground.anychart.com)
+* [AnyChart Documentation](https://docs.anychart.com)
+* [AnyChart API Reference](https://api.anychart.com)
+* [AnyChart Sample Solutions](https://www.anychart.com/solutions/)
+* [AnyChart Integrations](https://www.anychart.com/integrations/)
 
 ## License
 
-[© AnyChart.com - JavaScript charts](http://www.anychart.com). React Plugin is released under the [Apache 2.0 License](https://github.com/AnyChart/AnyChart-React/blob/master/LICENSE).
+[© AnyChart.com - JavaScript charts](https://www.anychart.com). 
+[![Analytics](https://ga-beacon.appspot.com/UA-228820-4/Plugins/React?pixel&useReferer)](https://github.com/igrigorik/ga-beacon)
