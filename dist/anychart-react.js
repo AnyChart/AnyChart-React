@@ -59,6 +59,12 @@ var AnyChart = function (_React$Component) {
      * @type {Array.<string>}
      */
     _this.multipleEntities = ['xAxis', 'yAxis', 'lineMarker', 'rangeMarker', 'textMarker', 'grid', 'minorGrid'];
+
+    /**
+     * Container for chart/stage.
+     * @type {string}
+     */
+    _this.containerId = props.id || 'ac-chart-container';
     return _this;
   }
 
@@ -155,7 +161,7 @@ var AnyChart = function (_React$Component) {
         delete props.type;
         delete props.data;
       }
-      if (this.instance) this.instance.container(props.id || 'ac-chart-container');
+      if (this.instance) this.instance.container(this.containerId);
       delete props.id;
     }
 
@@ -225,7 +231,7 @@ var AnyChart = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { id: this.props.id || 'ac-chart-container' });
+      return _react2.default.createElement('div', { id: this.containerId });
     }
 
     /**
@@ -236,6 +242,11 @@ var AnyChart = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.createAndDraw({});
+    }
+  }, {
+    key: 'componentWillUpdate',
+    value: function componentWillUpdate(nextProps, nextState) {
+      this.containerId = nextProps.id || this.containerId;
     }
 
     /**
