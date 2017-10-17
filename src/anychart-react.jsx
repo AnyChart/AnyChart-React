@@ -1,5 +1,5 @@
 import React from 'react';
-require('anychart')(document.defaultView);
+import 'anychart';
 
 /**
  * AnyChart React plugin.
@@ -31,6 +31,12 @@ class AnyChart extends React.Component {
      * @type {Array.<string>}
      */
     this.multipleEntities = ['xAxis', 'yAxis', 'lineMarker', 'rangeMarker', 'textMarker', 'grid', 'minorGrid'];
+
+    /**
+     * Container for chart/stage.
+     * @type {string}
+     */
+    this.containerId = props.id || 'ac-chart-container';
   }
 
   /**
@@ -99,7 +105,7 @@ class AnyChart extends React.Component {
       delete props.data;
     }
     if (this.instance)
-      this.instance.container(props.id || 'ac-chart-container');
+      this.instance.container(this.containerId);
     delete props.id;
   }
 
@@ -139,7 +145,7 @@ class AnyChart extends React.Component {
    */
   render() {
     return (
-      <div id={this.props.id || 'ac-chart-container'}></div>
+        <div id={this.containerId}></div>
     )
   }
 
@@ -148,6 +154,10 @@ class AnyChart extends React.Component {
    */
   componentDidMount() {
     this.createAndDraw({});
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    this.containerId = nextProps.id || this.containerId;
   }
 
   /**

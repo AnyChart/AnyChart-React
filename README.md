@@ -1,9 +1,9 @@
-[<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](http://www.anychart.com)
+[<img src="https://cdn.anychart.com/images/logo-transparent-segoe.png?2" width="234px" alt="AnyChart - Robust JavaScript/HTML5 Chart library for any project">](https://www.anychart.com)
 
 React Plugin for AnyChart
 =========
 
-Intuitive and easy to use [React](https://facebook.github.io/react/) plugin that allows you to create and work with [AnyChart JavaScript Charts](http://anychart.com).
+Intuitive and easy to use [React](https://facebook.github.io/react/) plugin that allows you to create and work with [AnyChart JavaScript Charts](https://www.anychart.com).
 
 ## Table of Contents
 
@@ -147,7 +147,7 @@ Such settings are shown in [Chart_with_JSON Settings](https://github.com/anychar
 
 ## Contacts
 
-* Web: [www.anychart.com](http://www.anychart.com)
+* Web: [www.anychart.com](https://www.anychart.com)
 * Email: [contact@anychart.com](mailto:contact@anychart.com)
 * Twitter: [anychart](https://twitter.com/anychart)
 * Facebook: [AnyCharts](https://www.facebook.com/AnyCharts)
@@ -156,16 +156,20 @@ Such settings are shown in [Chart_with_JSON Settings](https://github.com/anychar
 ## Links
 
 * [Report Issues](https://github.com/AnyChart/AnyChart-React/issues)
-* [AnyChart Website](http://www.anychart.com)
-* [Download AnyChart](http://www.anychart.com/download/)
-* [AnyChart Licensing](http://www.anychart.com/buy/)
-* [AnyChart Support](http://www.anychart.com/support/)
-* [AnyChart Playground](http://playground.anychart.com)
-* [AnyChart Documentation](http://docs.anychart.com)
-* [AnyChart API Reference](http://api.anychart.com)
-* [AnyChart Sample Solutions](http://www.anychart.com/solutions/)
-* [AnyChart Integrations](http://www.anychart.com/integrations/)
+* [AnyChart Website](https://www.anychart.com)
+* [Download AnyChart](https://www.anychart.com/download/)
+* [AnyChart Licensing](https://www.anychart.com/buy/)
+* [AnyChart Support](https://www.anychart.com/support/)
+* [AnyChart Playground](https://playground.anychart.com)
+* [AnyChart Documentation](https://docs.anychart.com)
+* [AnyChart API Reference](https://api.anychart.com)
+* [AnyChart Sample Solutions](https://www.anychart.com/solutions/)
+* [AnyChart Integrations](https://www.anychart.com/integrations/)
 
 ## License
 
-[© AnyChart.com - JavaScript charts](http://www.anychart.com). React Plugin is released under the [Apache 2.0 License](https://github.com/AnyChart/AnyChart-React/blob/master/LICENSE).
+AnyChart React plugin sample includes two parts:
+- code of the plugin sample that allows to use Javascript library (in this case, AnyChart) with React Library. You can use, edit, modify it, use it with other Javascript libraries without any restrictions. It is released under [Apache 2.0 License](https://github.com/AnyChart/AnyChart-React/blob/master/LICENSE).
+- AnyChart JavaScript library. It is released under Commercial license. You can test this plugin with the trial version of AnyChart. Our trial version is not limited by time and doesn't contain any feature limitations. Check details [here](https://www.anychart.com/buy/)
+
+If you have any questions regarding licensing - please contact us. <sales@anychart.com>

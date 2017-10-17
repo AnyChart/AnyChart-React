@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import AnyChart from '../../dist/anychart-react.min.js'
-
+import anychart from 'anychart'
 
 const data = anychart.data.set([
   ['p1', 5, 4],
@@ -32,5 +32,5 @@ const data = [
 
 // Render chart with settings
 ReactDOM.render(<AnyChart type="column" title="Multicolumn chart" width={800} height={600} legend={true} />, document.getElementById('root'));
-// Re-render with multicolumn data
+// Re-render with multicolumn data. No need to set type secondly, because it just updates data
 ReactDOM.render(<AnyChart data={data}/>, document.getElementById('root'));

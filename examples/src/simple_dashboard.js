@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import AnyChart from '../../dist/anychart-react.min.js'
+import anychart from 'anychart'
 
 let stage = anychart.graphics.create();
 let chart1 = anychart.line([1, 2, 3]);
