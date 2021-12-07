@@ -38,7 +38,7 @@
     "VML"
   ],
   "dependencies": {
-    "anychart": "^8.0.0",
+    "anychart": "latest",
     "react": "^15.6.2",
     "react-dom": "^15.6.2"
   },
