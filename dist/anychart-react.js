@@ -51,7 +51,7 @@ var AnyChart = function AnyChart(props) {
     isStage: false,
     instance: null
   });
-  var multipleEntities = ["xAxis", "yAxis", "lineMarker", "rangeMarker", "textMarker", "grid", "minorGrid"];
+  var multipleEntities = ['xAxis', 'yAxis', 'lineMarker', 'rangeMarker', 'textMarker', 'grid', 'minorGrid'];
   (0, _react.useEffect)(function () {
     return createAndDraw(props);
   });
@@ -69,7 +69,7 @@ var AnyChart = function AnyChart(props) {
 
     if (instance) {
       ref.current.instance = instance;
-      ref.current.isStage = typeof instance.draw != "function";
+      ref.current.isStage = typeof instance.draw != 'function';
     } else if (type) {
       ref.current.instance = anychart[type](data);
       ref.current.isStage = false;
@@ -121,9 +121,9 @@ var AnyChart = function AnyChart(props) {
           key = _Object$entries$_i[0],
           value = _Object$entries$_i[1];
 
-      if (["width", "height"].includes(key) && !isStage) instance.container().getStage()[key](value);
+      if (['width', 'height'].includes(key) && !isStage) instance.container().getStage()[key](value);
 
-      if (key in instance && typeof instance == "function") {
+      if (key in instance && typeof instance[key] == 'function') {
         if (multipleEntities.find(key)) {
           instance[key].apply(instance, _toConsumableArray(Array.isArray(value) ? value : [value]));
         } else instance[key](value);
@@ -173,7 +173,7 @@ var AnyChart = function AnyChart(props) {
 };
 
 AnyChart.defaultProps = {
-  id: "ac-chart-container"
+  id: 'ac-chart-container'
 };
 var _default = AnyChart;
 exports["default"] = _default;

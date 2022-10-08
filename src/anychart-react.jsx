@@ -84,7 +84,7 @@ const AnyChart = (props) => {
         instance.container().getStage()[key](value);
 
       if (key in instance && typeof instance[key] == 'function') {
-        if (multipleEntities.find(key)) {
+        if (multipleEntities.includes(key)) {
           instance[key](...(Array.isArray(value) ? value : [value]));
         } else instance[key](value);
       }
