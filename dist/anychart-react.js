@@ -1,286 +1,179 @@
-'use strict';
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _react = _interopRequireWildcard(require("react"));
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+require("anychart");
 
-var _react = require('react');
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
-var _react2 = _interopRequireDefault(_react);
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-require('anychart');
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 /**
  * AnyChart React plugin.
  */
-var AnyChart = function (_React$Component) {
-  _inherits(AnyChart, _React$Component);
-
-  function AnyChart(props) {
-    _classCallCheck(this, AnyChart);
-
-    /**
-     * Instance (stage or chart).
-     * @type {Object}
-     */
-    var _this = _possibleConstructorReturn(this, (AnyChart.__proto__ || Object.getPrototypeOf(AnyChart)).call(this, props));
-
-    _this.instance = null;
-
-    /**
-     * Whether instance is stage.
-     * @type {boolean}
-     */
-    _this.isStage = false;
-
-    /**
-     * Should we dispose instance or not.
-     * @type {boolean}
-     */
-    _this.disposeInstance = false;
-
-    /**
-     * Properties of AnyChart which expected as array of [entity_index, json].
-     * E.g. <AnyChart yAxis={[1, {orientation: 'right'}]} />
-     * @type {Array.<string>}
-     */
-    _this.multipleEntities = ['xAxis', 'yAxis', 'lineMarker', 'rangeMarker', 'textMarker', 'grid', 'minorGrid'];
-
-    /**
-     * Container for chart/stage.
-     * @type {string}
-     */
-    _this.containerId = props.id || 'ac-chart-container';
-    return _this;
-  }
-
+var AnyChart = function AnyChart(props) {
+  var ref = (0, _react.useRef)({
+    isStage: false,
+    instance: null
+  });
+  var multipleEntities = ["xAxis", "yAxis", "lineMarker", "rangeMarker", "textMarker", "grid", "minorGrid"];
+  (0, _react.useEffect)(function () {
+    return createAndDraw(props);
+  });
   /**
-   * Remove instance (dispose it if necessary).
+   * Create instance to render chart or use instance property.
+   * @param {Object} props Properties.
+   * @returns {}
    */
 
+  var createInstance = (0, _react.useCallback)(function (props) {
+    var id = props.id,
+        instance = props.instance,
+        type = props.type,
+        data = props.data;
 
-  _createClass(AnyChart, [{
-    key: 'removeInstance',
-    value: function removeInstance() {
-      if (this.instance) {
-        if (this.disposeInstance) this.instance.dispose();else {
-          if (this.isStage) this.instance.remove();else this.instance.container().getStage().remove();
-        }
+    if (instance) {
+      ref.current.instance = instance;
+      ref.current.isStage = typeof instance.draw != "function";
+    } else if (type) {
+      ref.current.instance = anychart[type](data);
+      ref.current.isStage = false;
+    }
+
+    ref.current.instance.container(id);
+    ref.current.prevProps = props;
+    /**
+     * Remove instance (dispose it if necessary).
+     */
+
+    return function () {
+      if (ref.current.instance) {
+        // dispose if instance was passed in
+        if (instance) return instance.dispose(); // if staged, remove the stage
+
+        if (ref.current.isStage) return ref.current.instance.remove(); // get the stage and remove it
+
+        ref.current.instance.container().getStage().remove();
+      }
+    };
+  });
+  /**
+   * Method that
+   * @param {Object} prevProps
+   */
+
+  var createAndDraw = (0, _react.useCallback)(function (newProps) {
+    var prevProps = ref.current.prevProps;
+
+    var props = _objectSpread(_objectSpread({}, prevProps), newProps);
+
+    var destroy = createInstance(props);
+    drawInstance(props);
+    return destroy;
+  });
+  /**
+   * Applies props.
+   * @param {Object} props Properties.
+   */
+
+  var applyProps = (0, _react.useCallback)(function (props) {
+    var _ref$current = ref.current,
+        instance = _ref$current.instance,
+        isStage = _ref$current.isStage;
+
+    for (var _i = 0, _Object$entries = Object.entries(props); _i < _Object$entries.length; _i++) {
+      var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+          key = _Object$entries$_i[0],
+          value = _Object$entries$_i[1];
+
+      if (["width", "height"].includes(key) && !isStage) instance.container().getStage()[key](value);
+
+      if (key in instance && typeof instance == "function") {
+        if (multipleEntities.find(key)) {
+          instance[key].apply(instance, _toConsumableArray(Array.isArray(value) ? value : [value]));
+        } else instance[key](value);
       }
     }
+  });
+  /**
+   * Draws chart.
+   * @param {Object} props Properties.
+   */
 
-    /**
-     * Checker for array.
-     * @param {*} value Value to check.
-     * @return {boolean}
-     */
+  var drawInstance = (0, _react.useCallback)(function (props) {
+    var _ref$current2 = ref.current,
+        instance = _ref$current2.instance,
+        isStage = _ref$current2.isStage;
+    var _props$charts = props.charts,
+        charts = _props$charts === void 0 ? [] : _props$charts;
+    if (!instance) return;
 
-  }, {
-    key: 'isArray',
-    value: function isArray(value) {
-      return (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object' && value instanceof Array;
-    }
+    if (isStage) {
+      instance.suspend();
+      applyProps(props);
 
-    /**
-     * Applies props.
-     * @param {Object} props Properties.
-     */
-
-  }, {
-    key: 'applyProps',
-    value: function applyProps(props) {
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
+      var _iterator = _createForOfIteratorHelper(charts),
+          _step;
 
       try {
-        for (var _iterator = Object.keys(props)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var key = _step.value;
-
-          var value = props[key];
-          if ((key == 'width' || key == 'height') && !this.isStage) this.instance.container().getStage()[key](value);
-
-          if (this.instance[key]) {
-            if (~this.multipleEntities.indexOf(key)) {
-              var _instance;
-
-              if (!this.isArray(value)) value = [value];
-              (_instance = this.instance)[key].apply(_instance, _toConsumableArray(value));
-            } else this.instance[key](value);
-          }
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var chart = _step.value;
+          chart.container(instance).draw();
         }
       } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
+        _iterator.e(err);
       } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
+        _iterator.f();
       }
+
+      instance.resume();
+    } else {
+      applyProps(props);
+      instance.draw();
     }
+  });
+  return /*#__PURE__*/_react["default"].createElement("div", {
+    id: props.id
+  });
+};
 
-    /**
-     * Create instance to render chart or use instance property.
-     * @param {Object} props Properties.
-     */
-
-  }, {
-    key: 'createInstance',
-    value: function createInstance(props) {
-      if (props.instance) {
-        this.removeInstance();
-        this.instance = props.instance;
-        this.isStage = typeof this.instance.draw !== 'function';
-        delete props.instance;
-        this.disposeInstance = false;
-      } else if (props.type) {
-        this.removeInstance();
-        this.disposeInstance = true;
-        this.instance = anychart[props.type](props.data);
-        this.isStage = false;
-        delete props.type;
-        delete props.data;
-      }
-      if (this.instance) this.instance.container(this.containerId);
-      delete props.id;
-    }
-
-    /**
-     * Draws chart.
-     * @param {Object} props Properties.
-     */
-
-  }, {
-    key: 'drawInstance',
-    value: function drawInstance(props) {
-      if (!this.instance) return;
-      if (this.isStage) {
-        this.instance.suspend();
-        var charts = props.charts;
-        delete props.charts;
-        this.applyProps(props);
-        var _iteratorNormalCompletion2 = true;
-        var _didIteratorError2 = false;
-        var _iteratorError2 = undefined;
-
-        try {
-          for (var _iterator2 = charts[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-            var chart = _step2.value;
-
-            chart.container(this.instance).draw();
-          }
-        } catch (err) {
-          _didIteratorError2 = true;
-          _iteratorError2 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion2 && _iterator2.return) {
-              _iterator2.return();
-            }
-          } finally {
-            if (_didIteratorError2) {
-              throw _iteratorError2;
-            }
-          }
-        }
-
-        this.instance.resume();
-      } else {
-        this.applyProps(props);
-        this.instance.draw();
-      }
-    }
-
-    /**
-     * Method that
-     * @param {Object} prevProps
-     */
-
-  }, {
-    key: 'createAndDraw',
-    value: function createAndDraw(prevProps) {
-      var props = Object.assign(prevProps, this.props);
-      this.createInstance(props);
-      this.drawInstance(props);
-    }
-
-    /**
-     * Render container for future chart drawing.
-     */
-
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement('div', { id: this.containerId });
-    }
-
-    /**
-     * Component has rendered.
-     */
-
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.createAndDraw({});
-    }
-  }, {
-    key: 'componentWillUpdate',
-    value: function componentWillUpdate(nextProps, nextState) {
-      this.containerId = nextProps.id || this.containerId;
-    }
-
-    /**
-     * Component has re-rendered.
-     * @param {Object} prevProps Previous properties.
-     * @param {Object} prevState Previous state.
-     */
-
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate(prevProps, prevState) {
-      var props = Object.assign({}, prevProps);
-      delete props.type;
-      delete props.instance;
-      this.createAndDraw(props);
-    }
-
-    /**
-     * Unmount react component.
-     */
-
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.removeInstance();
-    }
-  }]);
-
-  return AnyChart;
-}(_react2.default.Component);
-
-/**
- * Default export.
- */
-
-
-exports.default = AnyChart;
+AnyChart.defaultProps = {
+  id: "ac-chart-container"
+};
+var _default = AnyChart;
+exports["default"] = _default;
