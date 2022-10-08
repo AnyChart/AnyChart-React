@@ -124,7 +124,7 @@ var AnyChart = function AnyChart(props) {
       if (['width', 'height'].includes(key) && !isStage) instance.container().getStage()[key](value);
 
       if (key in instance && typeof instance[key] == 'function') {
-        if (multipleEntities.find(key)) {
+        if (multipleEntities.includes(key)) {
           instance[key].apply(instance, _toConsumableArray(Array.isArray(value) ? value : [value]));
         } else instance[key](value);
       }
