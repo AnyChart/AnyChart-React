@@ -1,6 +1,6 @@
 {
   "name": "anychart-react",
-  "version": "1.4.1",
+  "version": "2.0.0",
   "description": "React component for AnyChart JavaScript charting library",
   "main": "./dist/anychart-react.min.js",
   "scripts": {
