@@ -1,186 +1,130 @@
-import React from 'react';
-import 'anychart';
+import React, { useEffect, useRef, useState, useCallback } from "react";
+import "anychart";
 
 /**
  * AnyChart React plugin.
  */
-class AnyChart extends React.Component {
-  constructor(props) {
-    super(props);
-    /**
-     * Instance (stage or chart).
-     * @type {Object}
-     */
-    this.instance = null;
+const AnyChart = (props) => {
+  const ref = useRef({
+    isStage: false,
+    instance: null,
+  });
 
-    /**
-     * Whether instance is stage.
-     * @type {boolean}
-     */
-    this.isStage = false;
+  const multipleEntities = [
+    "xAxis",
+    "yAxis",
+    "lineMarker",
+    "rangeMarker",
+    "textMarker",
+    "grid",
+    "minorGrid",
+  ];
 
-    /**
-     * Should we dispose instance or not.
-     * @type {boolean}
-     */
-    this.disposeInstance = false;
-
-    /**
-     * Properties of AnyChart which expected as array of [entity_index, json].
-     * E.g. <AnyChart yAxis={[1, {orientation: 'right'}]} />
-     * @type {Array.<string>}
-     */
-    this.multipleEntities = ['xAxis', 'yAxis', 'lineMarker', 'rangeMarker', 'textMarker', 'grid', 'minorGrid'];
-
-    /**
-     * Container for chart/stage.
-     * @type {string}
-     */
-    this.containerId = props.id || 'ac-chart-container';
-  }
-
-  /**
-   * Remove instance (dispose it if necessary).
-   */
-  removeInstance() {
-    if (this.instance) {
-      if (this.disposeInstance)
-        this.instance.dispose();
-      else {
-        if (this.isStage)
-          this.instance.remove();
-        else
-          this.instance.container().getStage().remove();
-      }
-    }
-  }
-
-  /**
-   * Checker for array.
-   * @param {*} value Value to check.
-   * @return {boolean}
-   */
-  isArray(value) {
-    return ((typeof value == 'object') && (value instanceof Array))
-  }
-
-  /**
-   * Applies props.
-   * @param {Object} props Properties.
-   */
-  applyProps(props) {
-    for (let key of Object.keys(props)) {
-      let value = props[key];
-      if ((key == 'width' || key == 'height') && !this.isStage)
-        this.instance.container().getStage()[key](value);
-
-      if (this.instance[key]) {
-        if (~this.multipleEntities.indexOf(key)) {
-          if (!this.isArray(value))
-            value = [value];
-          this.instance[key](...value)
-        } else
-          this.instance[key](value)
-      }
-    }
-  }
+  useEffect(() => {
+    return createAndDraw(props);
+  });
 
   /**
    * Create instance to render chart or use instance property.
    * @param {Object} props Properties.
+   * @returns {}
    */
-  createInstance(props) {
-    if (props.instance) {
-      this.removeInstance();
-      this.instance = props.instance;
-      this.isStage = ((typeof this.instance.draw) !== 'function');
-      delete props.instance;
-      this.disposeInstance = false;
-    } else if (props.type) {
-      this.removeInstance();
-      this.disposeInstance = true;
-      this.instance = anychart[props.type](props.data);
-      this.isStage = false;
-      delete props.type;
-      delete props.data;
+  const createInstance = useCallback((props) => {
+    const { id, instance, type, data } = props;
+    if (instance) {
+      ref.current.instance = instance;
+      ref.current.isStage = typeof instance.draw != "function";
+    } else if (type) {
+      ref.current.instance = anychart[type](data);
+      ref.current.isStage = false;
     }
-    if (this.instance)
-      this.instance.container(this.containerId);
-    delete props.id;
-  }
 
-  /**
-   * Draws chart.
-   * @param {Object} props Properties.
-   */
-  drawInstance(props) {
-    if (!this.instance) return;
-    if (this.isStage) {
-      this.instance.suspend();
-      let charts = props.charts;
-      delete props.charts;
-      this.applyProps(props);
-      for (let chart of charts) {
-        chart.container(this.instance).draw();
+    ref.current.instance.container(id);
+    ref.current.prevProps = props; 
+
+    /**
+     * Remove instance (dispose it if necessary).
+     */
+    return () => {
+      if (ref.current.instance) {
+        // dispose if instance was passed in
+        if (instance) return instance.dispose();
+
+        // if staged, remove the stage
+        if (ref.current.isStage) return ref.current.instance.remove();
+
+        // get the stage and remove it
+        ref.current.instance.container().getStage().remove();
       }
-      this.instance.resume();
-    } else {
-      this.applyProps(props);
-      this.instance.draw();
-    }
-  }
+    };
+  });
 
   /**
    * Method that
    * @param {Object} prevProps
    */
-  createAndDraw(prevProps) {
-    var props = Object.assign(prevProps, this.props);
-    this.createInstance(props);
-    this.drawInstance(props);
-  }
+   const createAndDraw = useCallback((newProps) => {
+    const { prevProps } = ref.current;
+    const props = {...prevProps, ...newProps };
+
+    const destroy = createInstance(props);
+    drawInstance(props);
+
+    return destroy;
+  })
 
   /**
-   * Render container for future chart drawing.
+   * Applies props.
+   * @param {Object} props Properties.
    */
-  render() {
-    return (
-      <div id={this.containerId}></div>
-    )
-  }
+  const applyProps = useCallback((props) => {
+    const {instance, isStage } = ref.current;
+    for (const [key, value] of Object.entries(props)) {
+      if (["width", "height"].includes(key) && !isStage)
+        instance.container().getStage()[key](value);
+
+      if (
+        key in instance &&
+        typeof instance == "function"
+      ) {
+        if (multipleEntities.find(key)) {
+          instance[key](
+            ...(Array.isArray(value) ? value : [value])
+          );
+        } else instance[key](value);
+      }
+    }
+  });
 
   /**
-   * Component has rendered.
+   * Draws chart.
+   * @param {Object} props Properties.
    */
-  componentDidMount() {
-    this.createAndDraw({});
-  }
+  const drawInstance = useCallback((props) => {
+    const { instance, isStage } = ref.current;
+    const { charts = [] } = props;
+    if (!instance) return;
 
-  componentWillUpdate(nextProps, nextState) {
-    this.containerId = nextProps.id || this.containerId;
-  }
+    if (isStage) {
+      instance.suspend();
+      applyProps(props);
 
-  /**
-   * Component has re-rendered.
-   * @param {Object} prevProps Previous properties.
-   * @param {Object} prevState Previous state.
-   */
-  componentDidUpdate(prevProps, prevState) {
-    var props = Object.assign({}, prevProps);
-    delete props.type;
-    delete props.instance;
-    this.createAndDraw(props)
-  }
+      for (const chart of charts) {
+        chart.container(instance).draw();
+      }
 
-  /**
-   * Unmount react component.
-   */
-  componentWillUnmount() {
-    this.removeInstance();
-  }
-}
+      instance.resume();
+    } else {
+      applyProps(props);
+      instance.draw();
+    }
+  });
 
-/**
- * Default export.
- */
-export default AnyChart
+  return <div id={props.id}></div>
+};
+
+AnyChart.defaultProps = {
+  id: "ac-chart-container",
+};
+
+export default AnyChart;
