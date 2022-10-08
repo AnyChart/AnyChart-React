@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
-import "anychart";
+import React, { useEffect, useRef, useState, useCallback } from 'react';
+import 'anychart';
 
 /**
  * AnyChart React plugin.
@@ -11,13 +11,13 @@ const AnyChart = (props) => {
   });
 
   const multipleEntities = [
-    "xAxis",
-    "yAxis",
-    "lineMarker",
-    "rangeMarker",
-    "textMarker",
-    "grid",
-    "minorGrid",
+    'xAxis',
+    'yAxis',
+    'lineMarker',
+    'rangeMarker',
+    'textMarker',
+    'grid',
+    'minorGrid',
   ];
 
   useEffect(() => {
@@ -33,14 +33,14 @@ const AnyChart = (props) => {
     const { id, instance, type, data } = props;
     if (instance) {
       ref.current.instance = instance;
-      ref.current.isStage = typeof instance.draw != "function";
+      ref.current.isStage = typeof instance.draw != 'function';
     } else if (type) {
       ref.current.instance = anychart[type](data);
       ref.current.isStage = false;
     }
 
     ref.current.instance.container(id);
-    ref.current.prevProps = props; 
+    ref.current.prevProps = props;
 
     /**
      * Remove instance (dispose it if necessary).
@@ -63,34 +63,29 @@ const AnyChart = (props) => {
    * Method that
    * @param {Object} prevProps
    */
-   const createAndDraw = useCallback((newProps) => {
+  const createAndDraw = useCallback((newProps) => {
     const { prevProps } = ref.current;
-    const props = {...prevProps, ...newProps };
+    const props = { ...prevProps, ...newProps };
 
     const destroy = createInstance(props);
     drawInstance(props);
 
     return destroy;
-  })
+  });
 
   /**
    * Applies props.
    * @param {Object} props Properties.
    */
   const applyProps = useCallback((props) => {
-    const {instance, isStage } = ref.current;
+    const { instance, isStage } = ref.current;
     for (const [key, value] of Object.entries(props)) {
-      if (["width", "height"].includes(key) && !isStage)
+      if (['width', 'height'].includes(key) && !isStage)
         instance.container().getStage()[key](value);
 
-      if (
-        key in instance &&
-        typeof instance == "function"
-      ) {
+      if (key in instance && typeof instance == 'function') {
         if (multipleEntities.find(key)) {
-          instance[key](
-            ...(Array.isArray(value) ? value : [value])
-          );
+          instance[key](...(Array.isArray(value) ? value : [value]));
         } else instance[key](value);
       }
     }
@@ -120,11 +115,11 @@ const AnyChart = (props) => {
     }
   });
 
-  return <div id={props.id}></div>
+  return <div id={props.id}></div>;
 };
 
 AnyChart.defaultProps = {
-  id: "ac-chart-container",
+  id: 'ac-chart-container',
 };
 
 export default AnyChart;
